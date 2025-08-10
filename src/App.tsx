@@ -1,7 +1,8 @@
-import "./App.css";
+import "./index.css";
+import LaunchesPage from "./pages/launches/index";
 
 function App() {
-  return <>test</>;
+  return <LaunchesPage />;
 }
 
 export default App;
