@@ -1,69 +1,29 @@
-# React + TypeScript + Vite
+# Assignment for Toelevering Online
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is for a job application for Toelevering Online.
 
-Currently, two official plugins are available:
+## Intallation & run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- npm i to install dependencies
+- npm run dev to run the app
+- go to localhost:5173 to view the page
 
-## Expanding the ESLint configuration
+## Testing
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- npm run test to run test
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Functinalities
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+When opening the page all launches should be visibale. You can filter launches by using the filters on the left side.
+Clicking on a launch expands the card and it will show some additional info.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Technical
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+I used Vite with typescript and tailwind, since I know all these tchnologies. I like vite because it's easy to setup and the fast refresh is nice.
+I tried to show usage of shadcn and zustand, since we talked about that in our first meet up.
+For simplicity I chose to just use shadcn's darkmode filter on the main component for styling.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Challenges
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+I tried to animate the page by using framer-motion, but it made the app feel slow (on my pc at least, not on my laptop), so I cut all of that in the end for performance.
+I also never really wrote tests for frond-end (except from the occational test with playwright), so I just wrote a few simple tests with vitest, since I know how to use that for backend test.
