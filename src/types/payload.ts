@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { z } from "zod";
 
 export const payloadSchema = z.object({
   dragon: z.object({
@@ -8,7 +8,7 @@ export const payloadSchema = z.object({
     flight_time_sec: z.number().nullable(),
     manifest: z.array(z.string()).nullable(),
     water_landing: z.boolean().nullable(),
-    land_landing: z.boolean().nullable()
+    land_landing: z.boolean().nullable(),
   }),
   name: z.string(),
   type: z.string(),
@@ -36,7 +36,7 @@ export const payloadSchema = z.object({
   raan: z.number().nullable(),
   arg_of_pericenter: z.number().nullable(),
   mean_anomaly: z.number().nullable(),
-  id: z.string()
-})
+  id: z.string(),
+});
 
 export type Payload = z.infer<typeof payloadSchema>;

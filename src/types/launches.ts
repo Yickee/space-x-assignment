@@ -1,34 +1,34 @@
-import { z } from "zod"
+import { z } from "zod";
 
 export const fairingsSchema = z.object({
   reused: z.boolean().nullable(),
   recovery_attempt: z.boolean().nullable(),
   recovered: z.boolean().nullable(),
-  ships: z.array(z.string())
-})
+  ships: z.array(z.string()),
+});
 
 export const patchSchema = z.object({
   small: z.string().nullable(),
-  large: z.string().nullable()
-})
+  large: z.string().nullable(),
+});
 
 export const redditSchema = z.object({
   campaign: z.string().nullable(),
   launch: z.string().nullable(),
   media: z.string().nullable(),
-  recovery: z.string().nullable()
-})
+  recovery: z.string().nullable(),
+});
 
 export const flickrSchema = z.object({
   small: z.array(z.any()),
-  original: z.array(z.string())
-})
+  original: z.array(z.string()),
+});
 
 export const failureSchema = z.object({
   time: z.number(),
   altitude: z.number().nullable(),
-  reason: z.string()
-})
+  reason: z.string(),
+});
 
 export const coreSchema = z.object({
   core: z.string().nullable(),
@@ -39,8 +39,8 @@ export const coreSchema = z.object({
   landing_attempt: z.boolean().nullable(),
   landing_success: z.boolean().nullable(),
   landing_type: z.string().nullable(),
-  landpad: z.string().nullable()
-})
+  landpad: z.string().nullable(),
+});
 
 export const linksSchema = z.object({
   patch: patchSchema,
@@ -50,8 +50,8 @@ export const linksSchema = z.object({
   webcast: z.string().nullable(),
   youtube_id: z.string().nullable(),
   article: z.string().nullable(),
-  wikipedia: z.string().nullable()
-})
+  wikipedia: z.string().nullable(),
+});
 
 export const launchSchema = z.object({
   fairings: fairingsSchema.nullable(),
@@ -80,7 +80,7 @@ export const launchSchema = z.object({
   auto_update: z.boolean(),
   tbd: z.boolean(),
   launch_library_id: z.string().nullable(),
-  id: z.string()
-})
+  id: z.string(),
+});
 
 export type Launch = z.infer<typeof launchSchema>;

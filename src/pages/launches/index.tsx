@@ -54,7 +54,7 @@ function LaunchesPage() {
     };
 
     fetchRocketAndPayloads();
-  }, [selectedLaunch]);
+  }, [selectedLaunch, setCrew, setPayloads, setRocket]);
 
   useEffect(() => {
     if (selectedLaunch) {
