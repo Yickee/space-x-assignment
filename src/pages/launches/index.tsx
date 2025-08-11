@@ -68,13 +68,13 @@ function LaunchesPage() {
     };
   }, [selectedLaunch]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
 
-  if (error) {
-    return <div>Error loading launches: {error.message}</div>;
-  }
+  // if (error) {
+  //   return <div>Error loading launches: {error.message}</div>;
+  // }
 
   const filteredLaunches = launches.filter((launch) => {
     const isInDateRange =
@@ -115,6 +115,17 @@ function LaunchesPage() {
           style={{ scrollbarGutter: "stable" }}
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {isLoading && (
+              <div className="text-card-foreground">Loading...</div>
+            )}
+            {error && (
+              <div className="text-card-foreground">
+                Error loading launches: {error.message}
+              </div>
+            )}
+            {!isLoading && filteredLaunches.length === 0 && (
+              <div className="text-card-foreground">No launches found.</div>
+            )}
             {filteredLaunches.map((launch) => (
               <CardComponent
                 key={launch.id}

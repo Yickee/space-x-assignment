@@ -60,6 +60,19 @@ describe("LaunchesPage", () => {
     expect(screen.getByText(/error/i)).toBeInTheDocument();
   });
 
+  it("renders no launches found warning when fetched successfully, but no launches match filters", () => {
+    const mockedUseLaunches = vi.mocked(useLaunches);
+    mockedUseLaunches.mockReturnValue({
+      data: [] as Launch[],
+      isLoading: false,
+      error: null,
+    } as unknown as UseQueryResult<Launch[], Error>);
+
+    render(<LaunchesPage />);
+
+    expect(screen.getByText(/no launches found/i)).toBeInTheDocument();
+  });
+
   it("renders launches when data is fetched successfully", () => {
     const mockedUseLaunches = vi.mocked(useLaunches);
     mockedUseLaunches.mockReturnValue({
