@@ -14,7 +14,7 @@ type CardComponentProps = {
 
 const CardComponent = ({ launch, onClick }: CardComponentProps) => {
   return (
-    <div className="transition-opacity duration-300 opacity-100">
+    <div className="transition-opacity duration-300 opacity-100 hover:opacity-80 hover:cursor-pointer">
       <Card
         className="transition-shadow hover:shadow-lg h-full flex flex-col"
         onClick={onClick}
